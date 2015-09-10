@@ -4,7 +4,11 @@ var express = require('express'),
 	io = require('socket.io').listen(server),
 	users = {};
 	
-server.listen(3000);
+	app.set('port', process.env.PORT || 3000);
+	
+var port = app.get('port');
+	
+server.listen(port);
 
 app.get('/', function(req, res){
 	res.sendfile(__dirname + '/index.html');
